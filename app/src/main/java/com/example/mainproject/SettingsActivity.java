@@ -2,10 +2,13 @@ package com.example.mainproject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -18,6 +21,7 @@ public class SettingsActivity extends AppCompatActivity implements OnItemSelecte
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
 
         // Spinner element
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
