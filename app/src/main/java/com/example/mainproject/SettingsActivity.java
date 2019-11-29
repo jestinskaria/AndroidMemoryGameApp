@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -17,11 +19,34 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity implements OnItemSelectedListener {
 
+    private RadioGroup rgGameSize;
+    private RadioButton rb1,rb3;
+    private Button btnrtn;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        //Radiogroup Element
+        rgGameSize=(RadioGroup)findViewById(R.id.rgGameSize);
+        rb1=(RadioButton)findViewById(R.id.rb1);
+        rb3=(RadioButton)findViewById(R.id.rb3);
+        btnrtn=(Button)findViewById(R.id.btnrtn);
+
+        btnrtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(rb1.isChecked()){
+                    Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }else if(rb3.isChecked()){
+                    Intent intent = new Intent(SettingsActivity.this, SixRowActivity.class);
+                    startActivity(intent);
+                }
+
+            }
+        });
 
         // Spinner element
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
